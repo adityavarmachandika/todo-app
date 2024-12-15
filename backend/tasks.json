@@ -1,12 +1,14 @@
 [
-   { "id":"1",
-    "title":"read newspaper",
-    "description":"read newspaper particulary the sports page",
-    "completed":"false"
-    },
-   { "id":"2",
-    "title":"read magazine",
-    "description":"read newspaper particulary the sports page",
-    "completed":"false"
-    }
+  {
+    "id": 1,
+    "title": "read newspaper",
+    "description": "read newspaper particulary the sports page",
+    "completed": "false"
+  },
+  {
+    "id": 1734281311963,
+    "title": "prepare a machine learning model",
+    "description": "a model using adaline and other models like madaline",
+    "completed": "false"
+  }
 ]
