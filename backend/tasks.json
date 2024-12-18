@@ -10,5 +10,29 @@
     "title": "prepare a machine learning model",
     "description": "a model using adaline and other models like madaline",
     "completed": "false"
+  },
+  {
+    "id": 1734519744639,
+    "title": "task1",
+    "description": "desc1",
+    "completed": "false"
+  },
+  {
+    "id": 1734520349914,
+    "title": "task1",
+    "description": "task2",
+    "completed": false
+  },
+  {
+    "id": 1734520982754,
+    "title": "task3",
+    "description": "desc",
+    "completed": "false"
+  },
+  {
+    "id": 1734521004264,
+    "title": "task3",
+    "description": "desc3",
+    "completed": "false"
   }
 ]

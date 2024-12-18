@@ -4,6 +4,8 @@ const router = express.Router();
 // const router=require('express.router')
 // import fs from fs
 const fs = require('fs');
+const { request } = require('http');
+const { data } = require('react-router-dom');
 
 router.use(express.json())
 const filePath='./tasks.json'
@@ -22,6 +24,41 @@ router.post('/add',(req,res)=>{
           })
     })
 })
+
+
+router.put('/add/:fromtodotile.id', (req, res) => {
+    const id = parseInt(req.params.id); // Get the task ID from the request params
+    const updatedTask = req.body; // The updated task data sent in the request body
+
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading the tasks');
+        }
+
+        try {
+            const tasks = JSON.parse(data || '[]'); // Parse the tasks from the file
+
+            // Find the index of the task with the given ID
+            const index = tasks.findIndex((t) => t.id === id);
+            if (index === -1) {
+                return res.status(404).send('Task not found'); // Task doesn't exist
+            }
+
+            // Update the task at the found index
+            tasks[index] = { ...tasks[index], ...updatedTask };
+
+            // Write the updated tasks back to the file
+            fs.writeFile(filePath, JSON.stringify(tasks, null, 2), (err) => {
+                if (err) {
+                    return res.status(500).send('Error saving the tasks');
+                }
+                res.status(200).send('Task updated successfully'); // Send success response
+            });
+        } catch (error) {
+            return res.status(500).send('Error parsing the tasks');
+        }
+    });
+});
 
 
     router.delete('/deletetask/:id',(req,res)=>{
@@ -52,5 +89,4 @@ router.post('/add',(req,res)=>{
         
     })
     })
-
 module.exports=router;

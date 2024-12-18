@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-
-const deletetask= async(id,displayfun)=>{
+import { Link } from 'react-router-dom'
+const deletetask= async(id)=>{
   console.log(id)
   try{
     const response=await fetch(`http://localhost:4000/api/deletetask/${id}`,{
@@ -14,7 +14,21 @@ const deletetask= async(id,displayfun)=>{
   }
 }
 
-const Todotile = ({id,title,desc}) => {
+
+const Todotile = ({id,title,desc,fromchild}) => {
+  
+    const toparent= async(id)=>{
+      try{
+        const response=await  fetch(`http://localhost:4000/${id}`)
+        if(!response.ok) console.error('failed to fetch the details')
+          const data=await response.json()
+        fromchild(data)
+    }
+    catch(error){
+      console.log(error)
+    }
+    
+    }
     const [more,setmore]=useState(0)
     if(more){
         desc=desc.slice(0,97)
@@ -26,7 +40,7 @@ const Todotile = ({id,title,desc}) => {
     
         <button className='px-3  text-red-400 ' onClick={()=>setmore((oldstate)=>!oldstate)}>{(more)?'more':'less'}</button>
         <div className='flex justify-end'>
-            <button className='px-3 m-3 bg-red-400 rounded-xl text-xl'>Edit</button>
+            <button className='px-3 m-3 bg-red-400 rounded-xl text-xl' onClick={()=>toparent(id)}>Edit</button>
             <button className='px-3  m-3  bg-red-400 rounded-xl text-xl ' onClick={()=>deletetask(id)}>Delete</button>
         </div>
     </div>
