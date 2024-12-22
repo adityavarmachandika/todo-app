@@ -30,7 +30,7 @@ app.get('/:id',(req,res)=>{
         }
         }
         catch(error){
-
+            res.status(500).send('error parsing the task')
         }
     })  
 })

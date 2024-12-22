@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "read newspaper",
-    "description": "read newspaper particulary the sports page",
-    "completed": "false"
-  },
-  {
     "id": 1734281311963,
     "title": "prepare a machine learning model",
     "description": "a model using adaline and other models like madaline",
@@ -13,14 +7,14 @@
   },
   {
     "id": 1734519744639,
-    "title": "task1",
-    "description": "desc1",
+    "title": "watch the movie lucky basker",
+    "description": "should watch the movie lucky basker tonight",
     "completed": "false"
   },
   {
     "id": 1734520349914,
-    "title": "task1",
-    "description": "task2",
+    "title": "this is aditya",
+    "description": "this is his task that is to complete the react project tonight",
     "completed": false
   }
 ]

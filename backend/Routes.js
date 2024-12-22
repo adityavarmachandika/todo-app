@@ -26,7 +26,7 @@ router.post('/add',(req,res)=>{
 })
 
 
-router.put('/add/:fromtodotile.id', (req, res) => {
+router.put('/add/edit/:id', (req, res) => {
     const id = parseInt(req.params.id); // Get the task ID from the request params
     const updatedTask = req.body; // The updated task data sent in the request body
 

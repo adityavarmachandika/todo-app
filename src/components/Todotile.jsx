@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import {editcontext} from '../pages/Homepage'
 import { Link } from 'react-router-dom'
 const deletetask= async(id)=>{
   console.log(id)
@@ -19,7 +20,7 @@ const deletetask= async(id)=>{
 
 
 const Todotile = ({id,title,desc}) => {
-  
+    const {setedit,setid}=useContext(editcontext)
     const [more,setmore]=useState(0)
     if(more){
         desc=desc.slice(0,97)
@@ -32,7 +33,7 @@ const Todotile = ({id,title,desc}) => {
     
         <button className='px-3  text-red-400 ' onClick={()=>setmore((oldstate)=>!oldstate)}>{(more)?'more':'less'}</button>
         <div className='flex justify-end'>
-            <button className='px-3 m-3 bg-red-400 rounded-xl text-xl' >Edit</button>
+            <button className='px-3 m-3 bg-red-400 rounded-xl text-xl' onClick={()=>{setedit(true); setid(id)}}>Edit</button>
             <button className='px-3  m-3  bg-red-400 rounded-xl text-xl ' onClick={()=>deletetask(id)}>Delete</button>
         </div>
     </div>
